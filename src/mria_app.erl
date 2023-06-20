@@ -27,6 +27,13 @@
 %%================================================================================
 
 start(_Type, _Args) ->
+    dbg:tracer(),
+    dbg:p(all,c),
+    dbg:tpl(mnesia, system_info, cx),
+    dbg:tpl(mnesia, system_info2, cx),
+    dbg:tpl(mnesia_controller, merge_schema, cx),
+    dbg:tpl(mnesia_schema, do_merge_schema, cx),
+
     ?tp(notice, "Starting mria", #{}),
     mria_config:load_config(),
     mria_rlog:init(),
